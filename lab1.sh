@@ -5,6 +5,8 @@ echo "Hello dying world"
 dirname=$(date +%Y-%m-%d_%H-%M-%S)
 mkdir "$dirname"
 
+languages=(Python Java C C++ JavaScript Ruby Go Rust PHP Swift)
+
 for i in {0..9}; do
 	subname=$((i+1))
 	if [ "$i" -eq 9 ]; then
@@ -13,10 +15,10 @@ for i in {0..9}; do
     		subdir="$dirname/file10$subname"
 	fi
 	mkdir "$subdir"
-	texts="Python"
-	textfile=$(date +%Y-%m-%d_%H-%M-%S)
-	echo $textfile
-	echo "$texts" > "$subdir/${texts}.txt"
+
+    	texts="${languages[$i]}"
+    	textfile=$(printf "tuser5%02d.txt" "$subname")
+    	echo "$texts" > "$subdir/$textfile"
 	echo "Hello again you dying world","$subname"
 done
 
