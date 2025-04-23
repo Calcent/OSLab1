@@ -8,16 +8,16 @@ mkdir "$dirname"
 for i in {0..9}; do
 	subname=$((i+1))
 	if [ "$i" -eq 9 ]; then
-    		mkdir "$dirname/file11$subname"
+    		subdir="$dirname/file1$subname"
 	else
-    		mkdir "$dirname/file10$subname"
+    		subdir="$dirname/file10$subname"
 	fi
+	mkdir "$subdir"
+	texts="Python"
+	textfile=$(date +%Y-%m-%d_%H-%M-%S)
+	echo $textfile
+	echo "$texts" > "$subdir/${texts}.txt"
 	echo "Hello again you dying world","$subname"
 done
-
-texts="Python"
-textfile=$(date +%Y-%m-%d_%H-%M-%S)
-echo $textfile
-echo $texts > "$dirname/$textfile.txt"
 
 echo "successful"
